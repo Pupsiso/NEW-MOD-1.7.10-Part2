@@ -1,0 +1,49 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		maven {
+			name = "forge"
+			url = "http://files.minecraftforge.net/maven"
+		}
+		maven {
+			name = "sonatype"
+			url = "https://oss.sonatype.org/content/repositories/snapshots/"
+		}
+	}
+	dependencies {
+		classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+	}
+}
+
+repositories {
+	flatDir {
+		dirs 'lib'
+	}
+}
+
+apply plugin: 'forge'
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+version = "1.2.6.2[1.7.10]"
+group= "tombenpotter"
+archivesBaseName = "ElectroMagicTools"
+
+minecraft {
+	version = "1.7.10-10.13.4.1614-1.7.10"
+	runDir = "eclipse"
+}
+
+dependencies {
+	compile name: 'EventHelper-1.7-dev'
+	compile name: 'Baubles-1.7.10-1.0.1.10-dev'
+	compile name: 'Thaumcraft-1.7.10-4.2.3.5-dev'
+	compile name: 'EJML-core-0.26'
+	compile name: 'industrialcraft-2-2.2.814-experimental-dev'
+	compile name: archivesBaseName + '-' + version + '-dev'
+}
+
+jar {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	from zipTree('lib/' + archivesBaseName + '-' + version + '.jar')
+}

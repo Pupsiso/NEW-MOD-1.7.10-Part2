@@ -1,0 +1,66 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		maven {
+			name = "forge"
+			url = "http://files.minecraftforge.net/maven"
+		}
+		maven {
+			name = "sonatype"
+			url = "https://oss.sonatype.org/content/repositories/snapshots/"
+		}
+	}
+	dependencies {
+		classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+	}
+}
+
+repositories {
+	flatDir {
+		dirs 'lib'
+	}
+}
+
+apply plugin: 'forge'
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+version = "1.7.10-2.3.0.429_beta"
+group= "enderio"
+archivesBaseName = "EnderIO-classes"
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+	sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+	version = "1.7.10-10.13.4.1614-1.7.10"
+	runDir = "eclipse"
+}
+
+dependencies {
+	compile name: 'EventHelper-1.7.10-1.10-dev'
+	compile name: 'MineFactoryReloaded-[1.7.10]2.8.2B1-201-dev'
+	compile name: 'Baubles-1.7.10-1.0.1.10-dev'
+	compile name: 'Thaumcraft-1.7.10-4.2.3.5-dev'
+	compile name: 'immibis-core-59.1.4'
+	compile name: 'immibis-microblocks-59.1.2'
+	compile name: 'CodeChickenLib-1.7.10-1.1.3.140-dev'
+	compile name: 'CodeChickenCore-1.7.10-1.0.7.47-dev'
+	compile name: 'NotEnoughItems-1.7.10-1.0.5.120-dev'
+	compile name: 'ForgeMultipart-1.7.10-1.2.0.347-dev'
+	compile name: 'CoFHCore-[1.7.10]3.1.0-323-dev'
+	compile name: 'industrialcraft-2-2.2.817-experimental-dev'
+	compile name: 'buildcraft-7.1.16-dev'
+	compile name: 'DragonAPI-1.7.10-V13b-dev'
+	compile name: 'RotaryCraftAPI-1.7.1-V13a-dev'
+	compile name: 'Mekanism-1.7.10-9.1.0.281-dev'
+	compile name: 'ComputerCraft-1.74-dev'
+	compile name: 'OpenComputers-MC1.7.10-1.5.14.30-dev'
+	compile name: 'appliedenergistics2-rv3-beta-6-dev'
+	compile name: 'MicdoodleCore-1.7-3.0.12.502-dev'
+	compile name: 'GalacticraftCore-1.7-3.0.12.502-dev'
+	compile name: 'EnderCore-1.7.10-0.2.0.39_beta-dev'
+	compile name: 'EnderIO-' + version + '-dev'
+}
