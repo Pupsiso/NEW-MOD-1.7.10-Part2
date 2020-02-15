@@ -49,6 +49,11 @@ public final class EventConfig
 				   oldCategory = CATEGORY_GENERAL)
 	public static boolean enablePlaceItemInWorld = false;
 
+	@ConfigBoolean(category = CATEGORY_OTHER,
+			comment = "Только OP могут использовать Спавн камет, так же AdminSpawnEgg",
+			oldCategory = CATEGORY_GENERAL)
+	public static boolean useCreativeStructureSpawner = true;
+
 	@ConfigString(category = CATEGORY_OTHER,
 				  comment = "Разрешение для функции \"Place item in world\"",
 				  oldCategory = CATEGORY_GENERAL)
