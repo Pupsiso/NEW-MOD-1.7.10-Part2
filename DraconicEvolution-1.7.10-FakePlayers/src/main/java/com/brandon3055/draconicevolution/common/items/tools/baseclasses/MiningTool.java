@@ -102,22 +102,37 @@ public abstract class MiningTool extends ToolBase implements IUpgradableItem
 
 	public boolean breakAOEBlocks(ItemStack stack, int x, int y, int z, int breakRadius, int breakDepth, EntityPlayer player)
 	{
-		// TODO gamerforEA code start
-		if (this instanceof DraconicDistructionStaff)
-		{
-			if (breakRadius > EventConfig.staffMaxRange)
+		// TODO microwin7 code start
+		if(this instanceof DraconicDistructionStaff) {
+			if(breakRadius != EventConfig.staffMaxRange) {
 				breakRadius = EventConfig.staffMaxRange;
-			if (breakDepth > EventConfig.staffMaxRange)
-				breakDepth = EventConfig.staffMaxRange;
+			}
+
+			if(breakDepth != EventConfig.staffDepthMaxRange) {
+				breakDepth = EventConfig.staffDepthMaxRange;
+			}
 		}
-		else if (this instanceof DraconicPickaxe || this instanceof WyvernPickaxe)
-		{
-			if (breakRadius > EventConfig.pickaxeMaxRange)
+
+		if(this instanceof DraconicPickaxe) {
+			if(breakRadius != EventConfig.pickaxeMaxRange) {
 				breakRadius = EventConfig.pickaxeMaxRange;
-			if (breakDepth > EventConfig.pickaxeMaxRange)
-				breakDepth = EventConfig.pickaxeMaxRange;
+			}
+
+			if(breakDepth != EventConfig.pickaxeDepthMaxRange) {
+				breakDepth = EventConfig.pickaxeDepthMaxRange;
+			}
 		}
-		// TODO gamerforEA code end
+
+		if(this instanceof WyvernPickaxe) {
+			if(breakRadius != EventConfig.pickaxeWyvernMaxRange) {
+				breakRadius = EventConfig.pickaxeWyvernMaxRange;
+			}
+
+			if(breakDepth != EventConfig.pickaxeDepthWyvernMaxRange) {
+				breakDepth = EventConfig.pickaxeDepthWyvernMaxRange;
+			}
+		}
+		// TODO microwin7 code end
 
 		Map<Block, Integer> blockMap = IConfigurableItem.ProfileHelper.getBoolean(stack, References.OBLITERATE, false) ? this.getObliterationList(stack) : new HashMap<>();
 		Block block = player.worldObj.getBlock(x, y, z);

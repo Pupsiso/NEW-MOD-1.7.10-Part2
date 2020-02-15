@@ -86,16 +86,41 @@ public final class EventConfig
 	public static boolean extendedDragonHeartActivation = false;
 
 	@ConfigInt(category = CATEGORY_OTHER,
-			   comment = "Максимальный радиус разрушения посохом",
+			   comment = "Максимальный радиус разрушения посохом силы дракона",
 			   oldCategory = CATEGORY_GENERAL,
-			   min = 0)
+			   min = 0
+	)
 	public static int staffMaxRange = 11;
-
 	@ConfigInt(category = CATEGORY_OTHER,
-			   comment = "Максимальный радиус разрушения киркой",
+			   comment = "Максимальный радиус разрушения посохом силы дракона в глубину",
 			   oldCategory = CATEGORY_GENERAL,
-			   min = 0)
+			   min = 0
+	)
+	public static int staffDepthMaxRange = 0;
+	@ConfigInt(category = CATEGORY_OTHER,
+			   comment = "Максимальный радиус разрушения киркой дракона",
+			   oldCategory = CATEGORY_GENERAL,
+			   min = 0
+	)
 	public static int pickaxeMaxRange = 11;
+	@ConfigInt(category = CATEGORY_OTHER,
+			   comment = "Максимальный радиус разрушения посохом силы дракона в глубину",
+			   oldCategory = CATEGORY_GENERAL,
+			   min = 0
+	)
+	public static int pickaxeDepthMaxRange = 0;
+	@ConfigInt(category = CATEGORY_OTHER,
+			   comment = "Максимальный радиус разрушения киркой виверны",
+			   oldCategory = CATEGORY_GENERAL,
+			   min = 0
+	)
+	public static int pickaxeWyvernMaxRange = 0;
+	@ConfigInt(category = CATEGORY_OTHER,
+			   comment = "Максимальный радиус разрушения посохом силы дракона в глубину",
+			   oldCategory = CATEGORY_GENERAL,
+			   min = 0
+	)
+	public static int pickaxeDepthWyvernMaxRange = 0;
 
 	@ConfigBoolean(category = CATEGORY_OTHER,
 				   comment = "Charm of Dislocation может перемещать только игрока",
